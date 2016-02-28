@@ -73,7 +73,7 @@ class Shop():
         self.rawCost = rawCost
         
     def shopID(self):
-        print "Your shop is named %s" %self.name
+        print "Your shop's named %s" %self.name
 
         
     def backroom(self):
