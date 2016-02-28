@@ -34,3 +34,10 @@ selected = "dyno"
 remaining budget = 
 shop1.purchased(selected)
 shop1.status()
+
+
+name = "Bobby"
+budget = 500
+customer2 = bikeshop.Customers(name, budget)
+customer2.customerName()
+customer2.customerBudget()
