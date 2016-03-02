@@ -16,6 +16,7 @@ class Bicycle():
         self.model = model
         self.weight = 0
         self.cost = 0
+        self.weight =  rawWeight[self.model]
         
     def bikeWeight(self):
         """shows the weight of the bycicles"""
@@ -28,10 +29,10 @@ class Bicycle():
             "binachi": 18,
         }
         
-        self.weight =  rawWeight[self.model]
         print "A %s weighs %s" %(self.model, self.weight)
         
     def productionCost(self):
+        """cost to produce bicycle"""
         rawCost = {
             "GT" : 100,
             "schwin": 200,
@@ -51,12 +52,15 @@ class Customers():
         self.budget = budget
 
     def customerBudget(self):
-        print "Your budget is %s"%self.budget
+        """relays customer budget"""
+        print "\nYour budget is %s"%self.budget
         
     def customerName(self):
-        print "Your name is %s" %self.name
+        """greets customer"""
+        print "\nHello %s! Let's buy some bikes" %self.name
         
     def remainingBudget(self, price):
+        """calculates remaining budget"""
         remaining = self.budget - price
         print remaining
         
@@ -73,33 +77,40 @@ class Shop():
         self.rawCost = rawCost
         
     def shopID(self):
+        """gives shops name"""
         print "Your shop's named %s" %self.name
 
         
     def backroom(self):
-        print "Here is our backroom"
+        """shows store's stock"""
+        print "\nHere is our backroom:\n"
         for k, v in self.stock.items():
             print k + " : " + str(v)
 
             
     def menu(self, budget):
-        print "Your budget is %s.\nLets see what we have in that price range"%budget
+        """Shows what bikes customer can afford"""
+        print "\nYour budget is %s.\nLets see what we have in that price range"%budget
         for k,v in self.rawCost.items():
-            self.retail.setdefault(k, self.rawCost[k] + (self.rawCost[k]*.2))
+            self.retail.setdefault(k, self.rawCost[k] + (self.rawCost[k]*.2)) #probably unnecesary, just wantd to play with setdefault
         for k, v in self.retail.items():
             if self.retail[k] <= budget:
                 print k +"\t"+str(int(v))
 
                 
     def purchased(self, model):
-        print "You bought a %s"%model
-        self.profit += self.retail[model] - self.rawCost[model]
+        """adjust store's stock and profit to account for sale"""
+        print "\nYou bought a %s"%model
+        prof = self.retail[model] - self.rawCost[model]
+        self.profit += prof
         self.stock[model] -=1
         return self.retail[model]
         
 
     def status(self):
-        print "Total profits:\t%s" %self.profit
+        """relays store's stock and total profit"""
+        print "%s's total profits:\t%s" %(self.name,self.profit)
+        print "%s's remaining stock:"%(self.name)
         for k, v in self.stock.items():
             print k+" : "+ str(v)
         

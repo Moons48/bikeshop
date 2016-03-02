@@ -22,8 +22,6 @@ name = "John"
 budget = 500
 customer1 = bikeshop.Customers(name, budget)
 customer1.customerName()
-customer1.customerBudget()
-
 shopname = "Via"
 
 shop1 = bikeshop.Shop(shopname, rawCost, stock )
@@ -31,13 +29,29 @@ shop1.backroom()
 shop1.menu(budget)
 selected = "dyno"
 
-remaining budget = 
 shop1.purchased(selected)
 shop1.status()
 
-
 name = "Bobby"
-budget = 500
+budget = 1500
 customer2 = bikeshop.Customers(name, budget)
 customer2.customerName()
-customer2.customerBudget()
+
+shop1.backroom()
+shop1.menu(budget)
+selected = "binachi"
+
+shop1.purchased(selected)
+shop1.status()
+
+name = "Scooter"
+budget = 800
+customer2 = bikeshop.Customers(name, budget)
+customer2.customerName()
+
+shop1.backroom()
+shop1.menu(budget)
+selected = "trekk"
+
+shop1.purchased(selected)
+shop1.status()
